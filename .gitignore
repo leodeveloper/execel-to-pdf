@@ -2,3 +2,4 @@ Data/
 envxmltopdf/
 
 *.pdf
+*.DS_Store

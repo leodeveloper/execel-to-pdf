@@ -6,7 +6,7 @@ from io import BytesIO
 import os
 
 # Load the Excel file
-excel_file_path = 'Data/LEARNER DATA 2023 (1).xlsx'
+excel_file_path = 'Data/188 LEARNER DATA MAY 2023 TO SEP 2023.xlsx'
 df = pd.read_excel(excel_file_path)
 
 # Print the column names to verify them
@@ -75,12 +75,12 @@ def extract_data(row):
         'Email': row['Email'] if pd.notna(row['Email']) else '',
         'Job 1 Title': row['Job 1 Title'] if pd.notna(row['Job 1 Title']) else '',
         'Job 1 Company': row['Job 1 Company'] if pd.notna(row['Job 1 Company']) else '',
-        'Job 1 Start': row['Job 1 Start'].strftime('%Y %m') if pd.notna(row['Job 1 Start']) else '',
-        'Job 1 End': row['Job 1 End'].strftime('%Y %m') if pd.notna(row['Job 1 End']) else '',
+        'Job 1 Start': str(row['Job 1 Start']) if pd.notna(row['Job 1 Start']) else '',
+        'Job 1 End': str(row['Job 1 End']) if pd.notna(row['Job 1 End']) else '',
         'Job 2 Title': row['Job 2 Title'] if pd.notna(row['Job 2 Title']) else '',
         'Job 2 Company': row['Job 2 Company'] if pd.notna(row['Job 2 Company']) else '',
-        'Job 2 Start': row['Job 2 Start'].strftime('%Y %m') if pd.notna(row['Job 2 Start']) else '',
-        'Job 2 End': row['Job 2 End'].strftime('%Y %m') if pd.notna(row['Job 2 End']) else '',
+        'Job 2 Start': str(row['Job 2 Start']) if pd.notna(row['Job 2 Start']) else '',
+        'Job 2 End': str(row['Job 2 End']) if pd.notna(row['Job 2 End']) else '',
         'Course 1 Title': row['1 Course title:'] if pd.notna(row['1 Course title:']) else '',
         'College 1 Name': row['1 College or training name'] if pd.notna(row['1 College or training name']) else '',
         'Year 1 Completion': str(int(row['1 Year of completion'])) if pd.notna(row['1 Year of completion']) else '',
@@ -96,7 +96,7 @@ def extract_data(row):
 
 # Path to the PDF template and output directory
 pdf_template_path = 'Data/Info for CV PIL.pdf'
-output_dir = 'Data/'
+output_dir = 'DataOutPut/'
 os.makedirs(output_dir, exist_ok=True)
 
 # Loop through each row in the dataframe and create a filled PDF
